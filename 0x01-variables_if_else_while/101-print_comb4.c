@@ -23,7 +23,7 @@ int main(void)
 				putchar(h);
 				putchar(t);
 				putchar(o);
-				if (h < 56)
+				if (h < 55)
 				{
 					putchar(',');
 					putchar(' ');
