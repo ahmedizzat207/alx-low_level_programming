@@ -25,7 +25,10 @@ int main(void)
 				t2 = t1;
 			while (t2 <= 57)
 			{
-				n2 = n1 + 1;
+				if (t2 == t1)
+					n2 = n1 + 1;
+				else
+					n2 = 48;
 				while (n2 <= 57)
 				{
 					putchar(t1);
