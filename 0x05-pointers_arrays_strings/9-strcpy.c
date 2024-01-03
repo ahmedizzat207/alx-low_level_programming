@@ -21,4 +21,5 @@ char *_strcpy(char *dest, char *src)
 		if (*(src + counter) != '\0')
 			*(dest + counter) = *(src + counter);
 	}
+	return (*dest);
 }
