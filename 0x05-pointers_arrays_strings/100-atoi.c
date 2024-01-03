@@ -23,7 +23,11 @@ int _atoi(char *s)
 		if (*(s + counter) == '-')
 			sign *= -1;
 		if ((*(s + counter) >= '0') && (*(s + counter) <= '9'))
-			sum = sum * 10 + *(s + counter);
+		{
+			sum = sum * 10 + (*(s + counter) - 49);
+			if ((*(s + (counter + 1)) < '0') || (*(s + (counter + 1) > '9')))
+				break;
+		}
 		counter++;
 	}
 	result = sign * sum;
