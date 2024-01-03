@@ -20,11 +20,10 @@ void rev_string(char *s)
 	}
 	counter -= 1;
 	reverse = 0;
-	while (counter != reverse)
+	tmp = *s;
+	while (counter >= 0)
 	{
-		tmp = *(s + reverse);
-		*(s + reverse) = *(s + counter);
-		*(s + counter) = tmp;
+		*(s + reverse) = *(tmp + counter);
 		counter--;
 		reverse++;
 	}
