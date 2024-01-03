@@ -23,7 +23,7 @@ void rev_string(char *s)
 	reverse = 0;
 	while (counter >= 0)
 	{
-		*(s + reverse) = *(tmp + counter);
+		*(s + reverse) = tmp[counter];
 		counter--;
 		reverse++;
 	}
