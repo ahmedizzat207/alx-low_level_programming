@@ -20,6 +20,9 @@ void rev_string(char *s)
 	while (n >= 0)
 	{
 		putchar(*(s + n));
-		n--;
+		if (n == 0)
+			putchar('\0');
+		else
+			n--;
 	}
 }
