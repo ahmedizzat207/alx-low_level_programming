@@ -21,7 +21,10 @@ void rev_string(char *s)
 	{
 		putchar(*(s + n));
 		if (n == 0)
+		{
 			putchar('\0');
+			break;
+		}
 		n--;
 	}
 }
