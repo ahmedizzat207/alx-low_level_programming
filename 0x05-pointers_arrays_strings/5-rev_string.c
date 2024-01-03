@@ -9,17 +9,22 @@
 
 void rev_string(char *s)
 {
-	int n;
+	int counter;
+	int reverse;
+	char *tmp;
 
-	n = 0;
-	while (*(s + n) != '\0')
+	counter = 0;
+	while (*(s + counter) != '\0')
 	{
-		n++;
+		*(tmp + counter) = *(s + counter);
+		counter++;
 	}
-	n -= 1;
-	while (n >= 0)
+	counter -= 1;
+	reverse = 0;
+	while (counter >= 0)
 	{
-		putchar(*(s + n));
-		n--;
+		*(s + reverse) = *(tmp + counter);
+		counter--;
+		reverse++;
 	}
 }
