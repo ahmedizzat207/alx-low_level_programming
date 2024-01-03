@@ -11,14 +11,14 @@ void rev_string(char *s)
 {
 	int counter;
 	int reverse;
-	char *tmp;
+	char tmp;
 
 	counter = 0;
-	*tmp = *s;
 	while (*(s + counter) != '\0')
 	{
 		counter++;
 	}
+	tmp = *s;
 	counter -= 1;
 	reverse = 0;
 	while (counter >= 0)
