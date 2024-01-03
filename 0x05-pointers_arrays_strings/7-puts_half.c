@@ -20,10 +20,11 @@ void puts_half(char *str)
 	if (counter % 2 == 0)
 		half = counter / 2;
 	else
-		half = (counter - 1) / 2;
+		half = (counter + 1) / 2;
 	while (half < counter)
 	{
 		putchar(*(str + half));
 		half++;
 	}
+	putchar('\n');
 }
