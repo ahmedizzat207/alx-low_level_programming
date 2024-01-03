@@ -17,14 +17,11 @@ void rev_string(char *s)
 		n++;
 	}
 	n -= 1;
-	while (n >= 0)
+	while (n > 0)
 	{
 		putchar(*(s + n));
-		if (n == 0)
-		{
-			putchar('\0');
-			break;
-		}
 		n--;
 	}
+	putchar(*(s + 0));
+	putchar('\0');
 }
