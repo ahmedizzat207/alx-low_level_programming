@@ -14,9 +14,9 @@ void rev_string(char *s)
 	char *tmp;
 
 	counter = 0;
+	tmp = *s;
 	while (*(s + counter) != '\0')
 	{
-		*(tmp + counter) = *(s + counter);
 		counter++;
 	}
 	counter -= 1;
