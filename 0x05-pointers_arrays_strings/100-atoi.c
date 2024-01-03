@@ -14,20 +14,20 @@ int _atoi(char *s)
 	int sum;
 	int counter;
 	int result;
-	int counter+1;
+	int counterpls1;
 
 	counter = 0;
 	sign = 1;
 	sum = 0;
 	while (*(s + counter) != '\0')
 	{
-		counter+1 = counter + 1;
+		counterpls1 = counter + 1;
 		if (*(s + counter) == '-')
 			sign *= -1;
 		if ((*(s + counter) >= '0') && (*(s + counter) <= '9'))
 		{
 			sum = sum * 10 + (*(s + counter) - 49);
-			if ((*(s + counter+1) < '0') || (*(s + counter+1) > '9'))
+			if ((*(s + counterpls1) < '0') || (*(s + counterpls1) > '9'))
 				break;
 		}
 		counter++;
