@@ -6,7 +6,7 @@
  * @dest: the first and the main string
  * @src: the second string to be concatenates in the first one
  *
- * Retrun: the result (dest) string pointer
+ * Return: the result (dest) string pointer
  */
 
 char *_strcat(char *dest, char *src)
