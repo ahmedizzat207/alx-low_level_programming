@@ -13,18 +13,23 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	int counter;
-	int copy;
+	int i;
 
 	counter = 0;
-	while (*(dest + counter) != '\0')
+	i = 0;
+	while (1)
 	{
-		counter++;
-	}
-	copy = 0;
-	while (copy < n)
-	{
-		*(src + copy) = *(dest + counter);
-		copy++;
+		if (*(dest + counter) == '\0')
+		{
+			for (i = 0; i < n; i++)
+			{
+				if (*(src + i) == '\0')
+					break;
+				*(dest + counter) = *(src + i);
+				counter++;
+			}
+			break;
+		}
 		counter++;
 	}
 	return (dest);
