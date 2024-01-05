@@ -21,6 +21,10 @@ char *_strncpy(char *dest, char *src, int n)
 			break;
 		counter++;
 	}
-	dest[counter] = '\0';
+	while (counter < n)
+	{
+		*(dest + counter) = '\0';
+		counter++;
+	}
 	return (dest);
 }
