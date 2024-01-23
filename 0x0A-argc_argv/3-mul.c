@@ -13,7 +13,6 @@
 int main(int argc, char *argv[])
 {
 	int i;
-	int mul;
 	int result;
 
 	result = 1;
@@ -21,8 +20,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			mul = atoi(argv[i]) - 48;
-			result *= mul;
+			result *= atoi(argv[i]);
 		}
 		printf("%d\n", result);
 		return (0);
