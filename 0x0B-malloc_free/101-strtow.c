@@ -89,7 +89,6 @@ int wordscharcount(int word, char *str)
 		for (charnum = 1; str[i] != ' ' && str[i] != '\0'; charnum++)
 		{
 			if (str[i + 1] == ' ' || str[i + 1] == '\0')
-			
 				wordnum++;
 			/**
 			 * Just changing this condition from word to (word + 1) took me half an hour
