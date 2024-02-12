@@ -13,18 +13,20 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	dog_t add;
 	dog_t *Result;
 
+	Result = &add;
 	if (name != NULL)
-		(*Result).name = name;
+		add.name = name;
 	else
 		return (NULL);
 	if (age != 0)
-		(*Result).age = age;
+		add.age = age;
 	else
 		return (NULL);
 	if (owner != NULL)
-		(*Result).owner = owner;
+		add.owner = owner;
 	else
 		return (NULL);
 	return (Result);
