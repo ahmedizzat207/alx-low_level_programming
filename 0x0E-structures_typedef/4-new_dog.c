@@ -13,10 +13,11 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t add;
-	dog_t *Result;
+	dog_ *Result;
 
-	Result = &add;
+	Result = malloc(sizeof(dog_t));
+	if (Result == NULL)
+		return (NULL);
 	if (name != NULL)
 		add.name = name;
 	else
