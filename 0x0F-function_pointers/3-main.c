@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
 	if (argc != 4)
 	{
-		printf("Error argc is %d\n", argc);
+		printf("Error\n");
 		exit(98);
 	}
 	Firstopr = atoi((const char *)argv[1]);
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(99);
 	}
-	if (Secondopr == 0 && operation == op_div)
+	if (Secondopr == 0 && (operation == op_div || operation == op_mod))
 	{
 		printf("Error\n");
 		exit(100);
