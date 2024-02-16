@@ -1,6 +1,7 @@
 #ifndef VARIADICFUNCTIONS
 #define VARIADICFUNCTIONS
 
+#include <stdio.h>
 #include <stdarg.h>
 
 int _putchar(char c);
@@ -9,6 +10,7 @@ void print_numbers(const char *separator, const unsigned int n, ...);
 void print_strings(const char *separator, const unsigned int n, ...);
 
 void print_all(const char * const format, ...);
+void print_sep(int sepcheck);
 void print_char(va_list *argptr);
 void print_int(va_list *argptr);
 void print_float(va_list *argptr);
@@ -29,10 +31,11 @@ void print_string(va_list *argptr);
  * functions to print that specified type
  */
 
-struct identifiers
+typedef struct identifiers
 {
 	char character;
 	void (*charfunc)(va_list *argptr);
-};
+} identifier;
+
 
 #endif /* #ifndef VARIADICFUNCTIONS */

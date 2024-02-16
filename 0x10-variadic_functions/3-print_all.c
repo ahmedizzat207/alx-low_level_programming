@@ -3,6 +3,7 @@
 #include "variadic_functions.h"
 
 
+
 /**
  * print_all - The function prints anything
  * @format: a pointer to a character (string) that contains all the arguments
@@ -15,7 +16,7 @@
 
 void print_all(const char * const format, ...)
 {
-	struct identifiers checker[] = {
+	identifier checker[] = {
 		{'c', print_char},
 		{'i', print_int},
 		{'f', print_float},
@@ -24,26 +25,25 @@ void print_all(const char * const format, ...)
 	};
 	int formatcount;
 	int checkercount;
-	int sepcheck;
+	char *separator;
 	va_list arguments;
 	va_list *argptr;
 
 	va_start(arguments, format);
 	argptr = &arguments;
 	formatcount = 0;
-	sepcheck = 0;
-	while (format[formatcount] != '\0' && format != NULL)
+	separator = "";
+	while (format && format[formatcount])
 	{
 		checkercount = 0;
-		while (checker[checkercount].character != '\0')
+		while (checker[checkercount].character)
 		{
 
 			if (format[formatcount] == checker[checkercount].character)
 			{
-				if (sepcheck != 0)
-					printf(", ");
+				printf("%s", separator);
 				checker[checkercount].charfunc(argptr);
-				sepcheck++;
+				separator = ", ";
 			}
 			checkercount++;
 		}
@@ -51,6 +51,10 @@ void print_all(const char * const format, ...)
 	}
 	printf("\n");
 }
+
+
+
+
 
 /**
  * print_char - The function print a character from the calling variadic
@@ -96,5 +100,13 @@ void print_float(va_list *argptr)
 
 void print_string(va_list *argptr)
 {
-	printf("%s", va_arg(*argptr, char *));
+	char *check;
+
+	check = va_arg(*argptr, char *);
+	if (check == NULL)
+	{
+		printf("(nil)");
+		return;
+	}
+	printf("%s", check);
 }
