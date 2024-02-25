@@ -21,9 +21,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (!head || !*head)
 		return (-1);
 	temp = temp2 = *head;
-	for (count = 0; temp && count + 1 < index; count ++)
+	for (count = 0; temp && count + 1 < index; count++)
 		temp = temp2 = temp->next;
-	if (!index)
+	if (!index && temp)
 	{
 		if ((*head)->next)
 		{
