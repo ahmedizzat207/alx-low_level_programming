@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <limits.h>
 #include "main.h"
 
 /**
@@ -16,25 +18,27 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	for (index = 0, count = 0; index < (sizeof(n) * 8); index++)
 	{
-		check1 = (n & _pow(2, index)) >> index;
-		check2 = (m & _pow(2, index)) >> index;
+		check1 = n;
+		check2 = m;
+		check1 = (check1 & _specialpow(2, index)) >> index;
+		check2 = (check2 & _specialpow(2, index)) >> index;
 		count += (check1 ^ check2);
 	}
 	return (count);
 }
 
 /**
- * _pow - The function calculates the exponent result of a number to specific
- * power
- * @basic: an unsigned integer representing the basic number
- * @power: an unsigned integer representing the power number
+ * _specialpow - The function calculates the exponent result of a number to
+ * specific power
+ * @basic: an unsigned long integer representing the basic number
+ * @power: an unsigned long integer representing the power number
  *
- * Return: an unsigned integer of the result from the opration
+ * Return: an unsigned long integer of the result from the opration
  */
 
-unsigned int _pow(unsigned int basic, unsigned int power)
+unsigned long int _specialpow(unsigned long int basic, unsigned long int power)
 {
-	unsigned int result, exponent;
+	unsigned long int result, exponent;
 
 	result = 1;
 	for (exponent = 0; exponent < power; exponent++)
