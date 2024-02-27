@@ -5,7 +5,7 @@
  * print_binary - The function prints the binary representation of a number
  * @n: an unsigned long integer that contain the number to print in binary
  *
- * Description: The function shouldn't use arrays nor malloc not % and / 
+ * Description: The function shouldn't use arrays nor malloc not % and /
  * operators and it had no return value
  */
 
