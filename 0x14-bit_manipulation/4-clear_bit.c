@@ -16,7 +16,7 @@ int clear_bit(unsigned long int *n, unsigned int index)
 	unsigned long int power;
 	unsigned int count;
 
-	if ((index >= (sizeof(*n) * 8)) && !n)
+	if ((index >= (sizeof(*n) * 8)) || !n)
 		return (-1);
 	power = 1;
 	for (count = 0; count < index; count++)
