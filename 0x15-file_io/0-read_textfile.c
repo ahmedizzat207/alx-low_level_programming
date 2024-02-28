@@ -27,6 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!text)
 		return (0);
 	num = write(STDOUT_FILENO, text, read(file, text, letters));
+	close(file);
 	if (num <= (ssize_t)strlen(text))
 		return (num);
 	else
