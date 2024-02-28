@@ -19,17 +19,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char *text;
 	ssize_t num;
-	int file;
+	int file, failnum;
 
+	failnum = 1;
 	if (!filename)
 	{
-		write(STDOUT_FILENO, "", letters);
+		write(STDOUT_FILENO, "", failnum);
 		return (0);
 	}
-	file = open(filename, O_CREAT | O_RDONLY);
+	file = open(filename, O_RDONLY);
 	if (file == -1)
 	{
-		write(STDOUT_FILENO, "", letters);
+		write(STDOUT_FILENO, "", failnum);
 		return (0);
 	}
 	text = malloc(sizeof(*text) * letters);
