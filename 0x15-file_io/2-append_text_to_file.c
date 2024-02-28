@@ -1,7 +1,8 @@
 #include <string.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h>
+
+
 /**
  * append_text_to_file - The function appends text at the end of a file
  * @filename: a constent pointer to character (string) contain the file new to
@@ -25,7 +26,6 @@ int append_text_to_file(const char *filename, char *text_content)
 	{
 		charcount = strlen(text_content);
 		failnum = write(file, text_content, charcount);
-		printf("%d\n", failnum);
 		if (failnum != charcount)
 			return (-1);
 	}
