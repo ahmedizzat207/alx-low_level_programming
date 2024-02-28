@@ -21,17 +21,16 @@ int create_file(const char *filename, char *text_content)
 	file = open(filename, O_CREAT | O_TRUNC | O_WRONLY,  S_IRUSR | S_IWUSR);
 	if (file < 0)
 		return (-1);
-	charcount = strlen(text_content);
-	if (charcount)
+	if (!text_content)
 	{
+		charcount = strlen(text_content);
 		failnum = write(file, text_content, charcount);
 		if (failnum != charcount)
 			return (-1);
-		return (1);
 	}
 	else
 	{
-		failnum = write(file, "", 0);
-		return (1);
+		write(file, text_content, 0);
 	}
+	return (1);
 }
