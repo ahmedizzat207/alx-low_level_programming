@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -20,9 +21,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t num;
 	int file;
 
+	num = (ssize_t)printf("");
+	printf(" This is the number = %ld\n", num);
 	if (!filename)
+	{
+		write(STDOUT_FILENO, "", letters);
 		return (0);
+	}
 	file = open(filename, O_CREAT | O_RDONLY);
+	if (file == -1)
+	{
+		write(STDOUT_FILENO, "", letters);
+		return (0);
+	}
 	text = malloc(sizeof(*text) * letters);
 	if (!text)
 		return (0);
