@@ -21,7 +21,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t num;
 	int file, failnum;
 
-	failnum = 1;
+	failnum = 0;
 	if (!filename)
 	{
 		write(STDOUT_FILENO, "", failnum);
