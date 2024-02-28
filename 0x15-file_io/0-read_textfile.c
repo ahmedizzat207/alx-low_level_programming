@@ -21,8 +21,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t num;
 	int file;
 
-	num = (ssize_t)printf("");
-	printf(" This is the number = %ld\n", num);
 	if (!filename)
 	{
 		write(STDOUT_FILENO, "", letters);
