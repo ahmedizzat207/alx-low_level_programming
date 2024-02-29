@@ -37,12 +37,18 @@ int main(int argc, char **argv)
 	for (charcount = READ; charcount == READ;)
 	{
 		errorfrom = read(filefrom, buffer, READ);
+		check(98, argv[1], errorfrom < 0);
 		charcount = write(fileto, buffer, errorfrom);
+		check(99, argv[2], charcount < 0);
 	}
 	errorfrom = close(filefrom);
 	errorto = close(fileto);
-	check(100, argv[1], errorfrom < 0);
-	check(100, argv[2], errorto < 0);
+	if (errorfrom < 0 || errorto < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n",
+				((errorfrom < 0) ? errorfrom : errorto));
+		exit(100);
+	}
 	return (0);
 }
 
@@ -63,7 +69,7 @@ int check(ssize_t sysvalue, char *filename, bool status)
 	if (status && sysvalue == 97)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit (sysvalue);
+		exit(sysvalue);
 	}
 	else if (status && sysvalue == 98)
 	{
@@ -71,11 +77,6 @@ int check(ssize_t sysvalue, char *filename, bool status)
 		exit(sysvalue);
 	}
 	else if (status && sysvalue == 99)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-		exit(sysvalue);
-	}
-	else if (status && sysvalue == 100)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(sysvalue);
